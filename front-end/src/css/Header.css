@@ -1,0 +1,16 @@
+.card-title{
+    font-size: 200% ;
+      width: 38% ;
+      margin-top: 13%;
+      line-height: 141% ;
+      font-family: fantasy;
+  }
+  #exampleregion{
+    width: 49%;
+    height: 52px;
+    margin-top: -4%;
+    margin-left: -1%;
+  }
+  h1{
+    font-size: 140%;
+  }
