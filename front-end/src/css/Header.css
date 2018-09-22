@@ -1,9 +1,9 @@
 .card-title{
     font-size: 200% ;
       width: 38% ;
-      margin-top: 13%;
-      line-height: 141% ;
-      font-family: fantasy;
+    
+      line-height: 141%;
+      
   }
   #exampleregion{
     width: 49%;
@@ -11,6 +11,10 @@
     margin-top: -4%;
     margin-left: -1%;
   }
-  h1{
+  .tilte-header-container{
     font-size: 140%;
-  }
+    font-family: fantasy;
+    margin-top: 25%!important;
+
+}
+  

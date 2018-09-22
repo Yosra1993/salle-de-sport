@@ -7,7 +7,6 @@ import AboutUs from './About-us';
 import CalculBodyMasse from'./CalculBodyMasse.js'
 import ThumbnailsCarouselPage from './avisUser'
 import './css/App.css';
-import Login from './login.js'
 import Routes from './Routes'
 import {BrowserRouter} from 'react-router-dom'
 class App extends Component {
