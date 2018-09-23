@@ -1,13 +1,12 @@
-
 import React, { Component } from 'react';
-import {
-       Col, Form,
-    FormGroup,Input,
-    Button,
-  } from 'reactstrap';
   import Typist from 'react-typist';
+  import {Link} from 'react-router-dom'
+  import SearchLieu from "./Search"
+  import SearchCategorie from "./CategorieSearch"
+  import NomSearch from "./nomSearch"
   import './css/Header.css';
 import img from './images/banner-bg.jpg'
+import {Grid, Row, Col, Button} from "react-bootstrap"
 import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
 
     class Header extends Component {
@@ -20,28 +19,29 @@ import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
                       <CardTitle>
                       <Typist>
                           <Typist.Delay ms={1000} />
-                                     <h1>THIS IS A LIFE STYLE THERE IS NO FINISH LINE</h1>
+                                     <h1 className="tilte-header-container">THIS IS A LIFE STYLE THERE IS NO FINISH LINE</h1>
   
                       </Typist>
                          
                       </CardTitle>
-                      <CardText>
-                      <Form className="form">
-          <Col>
-            <FormGroup>
-              <Input
-                type="text"
-                name="region"
-                id="exampleregion"
-                placeholder="Exp : Sousse"
-              />
-            </FormGroup>
-          </Col>
-          
-          <Button color="danger">Submit</Button>
-        </Form>
-                      </CardText>
-                      
+                      <Grid>
+                      <Row className="show-grid">
+                      <Col xs={6} md={3}>
+                     < SearchLieu/>
+                     </Col>
+                     <Col xs={6} md={3}>
+                      <SearchCategorie/>
+                      </Col>
+                      <Col xs={6} md={3}>
+                      <NomSearch/>
+                      </Col>
+                      </Row>
+                      </Grid>
+                      <div class="col-md-4 text-right">
+                      <Link to="/ListSelles-De-Sport">
+                      <Button bsStyle="primary right">Search</Button>
+                      </Link>
+                      </div>
                     </CardImgOverlay>
                   </Card>
                 </div>
