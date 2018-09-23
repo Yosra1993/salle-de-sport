@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Grid, Jumbotron, Button} from 'react-bootstrap';
+import { Grid, Jumbotron} from 'react-bootstrap';
 import InfiniteCarousel from 'react-leaf-carousel';
 import './css/AboutUs.css';
 import img2 from './images/img2.jpg'
+import Header from './navbar'
 
 class  AboutUs extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class  AboutUs extends Component {
     render() {
         return (
             <Grid fluid >
+            <Header/> 
         <Jumbotron>
   <h1 style={{fontSize:"250%"}}>About us</h1>
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {HashRouter } from 'react-router-dom'
 import {
     Collapse,
     Navbar,
@@ -7,12 +8,11 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
+    
+    } from 'reactstrap';
     import logo from './images/logo.jpg'
     import './css/navbar.css';
+  
 
 class Header extends Component {
     
@@ -32,6 +32,7 @@ class Header extends Component {
       render() {
         return (
           <div>
+            <HashRouter> 
             <Navbar color="light" fixed={`top`} light expand="md">
               <NavbarBrand href="/"><img src={logo} style={{width: '30%'}}/>
               </NavbarBrand>
@@ -39,20 +40,18 @@ class Header extends Component {
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav navbar>
                 <NavItem>
-                    <NavLink href="/components/">Home</NavLink>
+                    <NavLink href="/">Home</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/components/">About us</NavLink>
+                    <NavLink href="/about-us">About us</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/components/">Promotions</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="/components/">Evenements</NavLink>
+                    <NavLink href='/evenement'>Promotions/events</NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>
             </Navbar>
+            </HashRouter>
           </div>
         );
       }

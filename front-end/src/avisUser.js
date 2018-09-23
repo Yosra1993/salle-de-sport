@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Carousel, CarouselInner, CarouselItem,Fa, Container } from 'mdbreact';
 import './css/avisUser.css';
 
+
 class ThumbnailsCarouselPage extends Component {
 
   render(){
