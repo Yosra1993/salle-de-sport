@@ -7,9 +7,8 @@ class SportList extends Component {
         super(props);
         this.state = { sports:[{
             img:require("./images/ExtraFitness.PNG"),
-            
-          nameSalledeSport:'gym1',
-          lieu:'sahloul RueAAAAAAAAAAAA',
+             nameSalledeSport:'gym1',
+             lieu:'sahloul RueAAAAAAAAAAAA',
 
         },
         {
@@ -18,7 +17,8 @@ class SportList extends Component {
           nameSalledeSport:'Fitness',
           lieu:'khzema RueAAAAAAAAAAAA',
 
-        }] };
+        }
+    ]};
     }
     render() {
         return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
-import { Container, Row, Col, Input, Button, Fa, Modal, ModalBody, ModalFooter } from 'mdbreact';
 import {HashRouter } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import {Input, Button, Fa, Modal, ModalBody, ModalFooter } from 'mdbreact';
 import {
     Collapse,
     Navbar,
@@ -23,9 +23,8 @@ class Header extends Component {
     
         this.toggle = this.toggle.bind(this);
         this.state = {
-          isOpen: false,
-          modal: false
-
+          modal: false,
+          isOpen: false
         };
         this.togglelogin = this.togglelogin.bind(this);
       }
@@ -53,13 +52,10 @@ class Header extends Component {
                     <NavLink href="/">Home</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/components/">About us</NavLink>
-                  </NavItem>
-                  <NavItem>
                     <NavLink href="/about-us">About us</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href='/evenement'>Promotions/events</NavLink>
+                    <NavLink href='/evenement'>Promotions/Events</NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="#" onClick={this.togglelogin}>Join us</NavLink>
@@ -67,8 +63,8 @@ class Header extends Component {
                 </Nav>
               </Collapse>
             </Navbar>
-            
-        
+            </HashRouter>
+
             <Modal isOpen={this.state.modal} togglelogin={this.togglelogin} className="cascading-modal">
               <div className="modal-header primary-color white-text">
                 <h4 className="title">
@@ -80,20 +76,16 @@ class Header extends Component {
               <ModalBody className="grey-text">
               <Input size="sm" label="Your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
                 <Input size="sm" label="Your Password" icon="user" group type="password" validate error="wrong" success="right"/>
-                <span>Vous n'avez pas un compte ?</span>
-                <Link to='/inscription'>inscrivez vous
+                <span>Do you have an account?</span>
+                <Link to='/inscription'>Register
                 </Link>
                 
                 
               </ModalBody>
               <ModalFooter>
-                <Link to='/Profil-salle-de-Sport'>
                 <Button color="primary">Save</Button>
-                </Link>
               </ModalFooter>
             </Modal>
-          
-            </HashRouter>
           </div>
         );
       }
