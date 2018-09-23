@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import { Container, Row, Col, Input, Button, Fa, Modal, ModalBody, ModalFooter } from 'mdbreact';
+import {HashRouter } from 'react-router-dom'
 import {
     Collapse,
     Navbar,
@@ -9,12 +10,11 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
+    
+    } from 'reactstrap';
     import logo from './images/logo.jpg'
     import './css/navbar.css';
+  
 
 class Header extends Component {
     
@@ -42,6 +42,7 @@ class Header extends Component {
       render() {
         return (
           <div>
+            <HashRouter> 
             <Navbar color="light" fixed={`top`} light expand="md">
               <NavbarBrand href="/"><img src={logo} style={{width: '30%'}}/>
               </NavbarBrand>
@@ -55,10 +56,10 @@ class Header extends Component {
                     <NavLink href="/components/">About us</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/components/">Promotions</NavLink>
+                    <NavLink href="/about-us">About us</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/components/">Evenements</NavLink>
+                    <NavLink href='/evenement'>Promotions/events</NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="#" onClick={this.togglelogin}>Join us</NavLink>
@@ -92,6 +93,7 @@ class Header extends Component {
               </ModalFooter>
             </Modal>
           
+            </HashRouter>
           </div>
         );
       }
