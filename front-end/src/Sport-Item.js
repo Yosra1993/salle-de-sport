@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 import {Card,CardImage,CardBody,Fa,CardTitle,CardText} from 'mdbreact';
 
 const SportItem =({sport:{img,nameSalledeSport,lieu}})=>
@@ -13,7 +14,9 @@ const SportItem =({sport:{img,nameSalledeSport,lieu}})=>
               <CardTitle>{nameSalledeSport}</CardTitle>
               <hr />
               <CardText>{lieu}</CardText>
-              <a href="#!" className="black-text d-flex justify-content-end"><h5>More Informations <Fa icon="angle-double-right"></Fa></h5></a>
+              <Link to="/Salle-De-Sport">
+              <a className="black-text d-flex justify-content-end"><h5>More Informations <Fa icon="angle-double-right"></Fa></h5></a>
+              </Link>
             </CardBody>
           </Card> 
         );}

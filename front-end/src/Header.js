@@ -37,9 +37,10 @@ import { Card, CardTitle, CardText, CardImg, CardImgOverlay } from 'reactstrap';
                       </Col>
                       </Row>
                       </Grid>
-                      <div class="col-md-4 text-right">
-                      <Link to="/ListSelles-De-Sport">
-                      <Button bsStyle="primary right">Search</Button>
+                      <div class="col-md-6 text-right">
+                      <Link to="/ListSalles-De-Sport">
+                      <Button bsStyle="primary right" style={{marginTop:"5%",width:"21%"}}>Search</Button>
+    
                       </Link>
                       </div>
                     </CardImgOverlay>

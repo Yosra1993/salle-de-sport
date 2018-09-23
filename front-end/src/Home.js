@@ -5,7 +5,6 @@ import Header from './Header';
 import AboutUs from './About-us';
 import CalculBodyMasse from'./CalculBodyMasse.js'
 import ThumbnailsCarouselPage from './avisUser'
-import Login from './login.js'
 class Home extends Component {
   render() {
     return (
@@ -16,7 +15,6 @@ class Home extends Component {
         <AboutUs/>
         <CalculBodyMasse/>
         <ThumbnailsCarouselPage/>
-         <Login/>
          
       </div>
     

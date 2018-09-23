@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SportItem from './Sport-Item.js'
+import Navbar from './navbar.js'
 import './css/sport_list.css';
 class SportList extends Component {
     constructor(props) {
@@ -21,8 +22,9 @@ class SportList extends Component {
     }
     render() {
         return (
+            
             <div className='sport_list'>
-      
+      <Navbar/>
     { 
           this.state.sports.map(elm=> <SportItem key={elm.id} sport={elm} />)  
     }

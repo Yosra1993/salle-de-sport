@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
+import { Container, Row, Col, Input, Button, Fa, Modal, ModalBody, ModalFooter } from 'mdbreact';
 import {
     Collapse,
     Navbar,
@@ -21,12 +23,20 @@ class Header extends Component {
     
         this.toggle = this.toggle.bind(this);
         this.state = {
-          isOpen: false
+          isOpen: false,
+          modal: false
+
         };
+        this.togglelogin = this.togglelogin.bind(this);
       }
       toggle() {
         this.setState({
           isOpen: !this.state.isOpen
+        });
+      }
+      togglelogin() {
+        this.setState({
+          modal: !this.state.modal
         });
       }
       render() {
@@ -39,7 +49,7 @@ class Header extends Component {
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav navbar>
                 <NavItem>
-                    <NavLink href="/components/">Home</NavLink>
+                    <NavLink href="/">Home</NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="/components/">About us</NavLink>
@@ -50,9 +60,38 @@ class Header extends Component {
                   <NavItem>
                     <NavLink href="/components/">Evenements</NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink href="#" onClick={this.togglelogin}>Join us</NavLink>
+                  </NavItem>
                 </Nav>
               </Collapse>
             </Navbar>
+            
+        
+            <Modal isOpen={this.state.modal} togglelogin={this.togglelogin} className="cascading-modal">
+              <div className="modal-header primary-color white-text">
+                <h4 className="title">
+                  <Fa className="fa fa-pencil" /> Contact form</h4>
+                <button type="button" className="close" onClick={this.togglelogin}>
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <ModalBody className="grey-text">
+              <Input size="sm" label="Your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
+                <Input size="sm" label="Your Password" icon="user" group type="password" validate error="wrong" success="right"/>
+                <span>Vous n'avez pas un compte ?</span>
+                <Link to='/inscription'>inscrivez vous
+                </Link>
+                
+                
+              </ModalBody>
+              <ModalFooter>
+                <Link to='/Profil-salle-de-Sport'>
+                <Button color="primary">Save</Button>
+                </Link>
+              </ModalFooter>
+            </Modal>
+          
           </div>
         );
       }
