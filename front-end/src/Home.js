@@ -7,12 +7,14 @@ import CalculBodyMasse from'./CalculBodyMasse.js'
 import ThumbnailsCarouselPage from './avisUser'
 import Login from './login.js'
 import FooterPage from'./footer'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 class Home extends Component {
   render() {
     return (
-      
+    
       <div className="home">
-        <Navbar/>
+ 
         <Header/> 
          <Login/>
         <AboutUs/>
@@ -27,5 +29,18 @@ class Home extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    connectedUser : state.UserReducer
+  }
+}
 
-export default Home;
+const mapDispatchToProps = dispatch => {
+  return {
+  
+  
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (Home);

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Mask, Fa, View, Button} from 'mdbreact';
  import FooterPage  from './footer.js'
- import Header from './navbar'
+ import Navbar from './navbar'
 
 const EventItem = (props) => {
   return(
    <Container>
-     <Header/>
-      <Row>
+     <Navbar/>
+      <Row style={{paddingTop: "70px"}}>
         <Col lg="7">
           <a className="pink-text">
             <h6 className="font-weight-bold mb-3">

@@ -6,6 +6,18 @@ import 'semantic-ui-css/semantic.min.css';
 import 'mdbreact';
 import './css/index.css';
 import App from './App';
+import Reducers from './Reducers'
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
 
-ReactDOM.render(( <App/> ), document.getElementById('root'));
+let store = createStore(Reducers)
+
+
+ReactDOM.render(( 
+
+<Provider store= {store} >
+<App/> 
+</Provider>
+
+), document.getElementById('root'));
 

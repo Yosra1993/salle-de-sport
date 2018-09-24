@@ -24,7 +24,6 @@ class SportList extends Component {
         return (
             
             <div className='sport_list'>
-      <Navbar/>
     { 
           this.state.sports.map(elm=> <SportItem key={elm.id} sport={elm} />)  
     }

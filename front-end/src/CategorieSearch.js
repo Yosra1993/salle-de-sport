@@ -43,7 +43,7 @@ class ControlledOpenSelect extends React.Component {
 
     return (
       <form autoComplete="off" style={{marginLeft:"-53%"}}>
-        <FormControl style={{width: "36%"}}>
+        <FormControl style={{width: "36%",backgroundColor: "white"}}>
           <InputLabel>Lieu</InputLabel>
           <Select
             open={this.state.open}
