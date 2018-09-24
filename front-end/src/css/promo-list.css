@@ -1,0 +1,22 @@
+h6{
+    color:red
+}
+Button:hover {
+    background-color: black;
+    color: white; 
+    
+}
+h6:hover {
+    transform: scale(1.5)}
+h6{
+text-align: center;
+
+transition: transform .2s; /* Animation */
+}
+
+ h3{
+    
+        text-align: center;
+        text-transform: uppercase;
+        color: blue
+ } 

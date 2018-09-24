@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {HashRouter } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import {  Input, Button, Fa, Modal, ModalBody, ModalFooter } from 'mdbreact';
 import {
     Collapse,
     Navbar,
@@ -21,12 +23,19 @@ class Header extends Component {
     
         this.toggle = this.toggle.bind(this);
         this.state = {
+          modal: false,
           isOpen: false
         };
+        this.togglelogin = this.togglelogin.bind(this);
       }
       toggle() {
         this.setState({
           isOpen: !this.state.isOpen
+        });
+      }
+      togglelogin() {
+        this.setState({
+          modal: !this.state.modal
         });
       }
       render() {
@@ -46,12 +55,37 @@ class Header extends Component {
                     <NavLink href="/about-us">About us</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href='/evenement'>Promotions/events</NavLink>
+                    <NavLink href='/evenement'>Promotions/Events</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href='#'onClick={this.togglelogin}>Join us</NavLink>
                   </NavItem>
                 </Nav>
               </Collapse>
             </Navbar>
             </HashRouter>
+
+            <Modal isOpen={this.state.modal} togglelogin={this.togglelogin} className="cascading-modal">
+              <div className="modal-header primary-color white-text">
+                <h4 className="title">
+                  <Fa className="fa fa-pencil" /> Contact form</h4>
+                <button type="button" className="close" onClick={this.togglelogin}>
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <ModalBody className="grey-text">
+              <Input size="sm" label="Your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
+                <Input size="sm" label="Your Password" icon="user" group type="password" validate error="wrong" success="right"/>
+                <span>Do you have an account?</span>
+                <Link to='/inscription'>Register
+                </Link>
+                
+                
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary">Save</Button>
+              </ModalFooter>
+            </Modal>
           </div>
         );
       }
