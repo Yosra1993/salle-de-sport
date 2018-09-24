@@ -1,11 +1,14 @@
 import React from 'react';
 import { Table, TableBody, TableHead  } from 'mdbreact';
+import {Link} from 'react-router-dom'
 import {Button} from 'mdbreact';
 
 const PromotionEvent = (props) => {
   return (
      <div className="promotion-eventcontainer">
+     <Link to="/Add-Promotion-Event">
     <Button className="pull-right" color="Warning">Add +</Button>
+    </Link>
     <Table striped>
       <TableHead>
         <tr>

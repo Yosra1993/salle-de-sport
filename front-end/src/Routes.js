@@ -8,6 +8,7 @@ import PageUser from './PageUser.js'
 import Eventliste from './event-promo-liste.js'
 import Home from './Home'
 import AboutUs from './About-us'
+import AddProduct from './AddPromotion-Event'
 const Routes = () => {
     return (
         <div>
@@ -19,6 +20,8 @@ const Routes = () => {
             <Route exact path="/about-us" component={AboutUs}/>
             <Route exact path="/evenement" component={Eventliste}/>
             <Route exact path="/Profil-user" component={PageUser}/>
+            <Route exact path="/Add-Promotion-Event" component={AddProduct}/>
+
 
         </div>
     );

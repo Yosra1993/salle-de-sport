@@ -11,7 +11,15 @@ const UserReducer = (state = "", action) => {
         return state
     }
 }
+const AddPromotionEventReducer = (state = "", action) => {
+    switch(action.type) {
+        case "ADD_PROMOTION/EVENT":
+      return state.concat(action.newPromotion_event);
+        default : 
+        return state
+    }
+}
 
-const Reducers = combineReducers({UserReducer})
+const Reducers = combineReducers({UserReducer,AddPromotionEventReducer})
 
 export default Reducers

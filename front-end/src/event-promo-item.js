@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Mask, Fa, View, Button} from 'mdbreact';
- import FooterPage  from './footer.js'
  import Navbar from './navbar'
 
 const EventItem = (props) => {
