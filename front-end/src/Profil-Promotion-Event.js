@@ -23,7 +23,9 @@ const PromotionEvent = (props) => {
           <td>1</td>
           <td>Musculation</td>
           <td>Promotion</td>
-          <td><Button color="info">Edit</Button><Button color="danger" style={{marginLeft:"2%"}}>Delete</Button></td>
+          
+          <td><Link to="/Edit-Promotion-Event"><Button color="info">Edit</Button></Link>
+          <Button color="danger" style={{marginLeft:"2%"}}>Delete</Button></td>
     
         </tr>
         

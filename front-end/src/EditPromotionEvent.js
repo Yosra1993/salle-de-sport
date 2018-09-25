@@ -1,16 +1,12 @@
 import React from "react";
 import {Container, Button,  FormGroup, Label, Input, } from 'reactstrap';
 import { connect } from "react-redux";
-import axios from "axios";
 import {Link} from 'react-router-dom'
-class AddPromotionEvent extends React.Component {
-  onAddPromotionEvent = () => {
-    axios
-      .post("/EventPromotion", this.state)
-      .then(() => this.props.onAddPromotionEventReducerAction(this.state))
-      .catch(err => alert(err));
-  };
-  
+class EditPromotionEvent extends React.Component {
+  constructor(props) {
+    super(props);
+    
+  }
   onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -18,7 +14,7 @@ class AddPromotionEvent extends React.Component {
   };
   render() {
     return (
-      <div className="add-promotion-event-container" style={{paddingTop: "70px"}}>
+      <div className="edit-promotion-event-container" style={{paddingTop: "70px"}}>
         < Container>
         <FormGroup>
           <Label for="exampleNameGym">Name Gym</Label>
@@ -45,7 +41,7 @@ class AddPromotionEvent extends React.Component {
           <Input type="textarea" name="description" id="exampledescription" onChange={this.onChange} placeholder="Please write your description......." />
         </FormGroup>
          <Link to='/evenement'>
-        <Button color="danger" onClick={this.onAddPromotionEvent}>Add +</Button>{' '}
+        <Button color="danger" onClick={this.props.onProductReducerAction(this.state)}>Add +</Button>{' '}
         </Link>
       </Container>
       </div>
@@ -54,17 +50,15 @@ class AddPromotionEvent extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {
-
-  };
+  return {};
 };
 
 const mapDispacthToProps = dispatch => {
   return {
-    onAddPromotionEventReducerAction: promotion_event => {
+    onProductReducerAction: promotion_event => {
       dispatch({
-        type: "ADD_PROMOTION/EVENT",
-        new_PromotionEvent:promotion_event
+        type: "EDIT_PROMOTION/EVENT",
+        newPromotion_event: promotion_event
       });
     }
   };
@@ -72,5 +66,5 @@ const mapDispacthToProps = dispatch => {
 
 export default connect(
   mapStateToProps,
-  mapDispacthToProps)(AddPromotionEvent);
+  mapDispacthToProps)(EditPromotionEvent);
 

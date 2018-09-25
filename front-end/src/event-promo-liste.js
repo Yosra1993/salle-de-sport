@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import EventItem  from './event-promo-item.js'
+import { connect } from "react-redux";
+import axios from "axios";
 import './css/promo-list.css';
-import * as promotion from './data/promotion'
 class Eventliste extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-        events:[]
-        };
+    }
+    componentDidMount() {
+      axios.get("/EventPromotion").then(res => this.props.initPromotionEventList(res.data));
     }
     render() {
         return (
             <div className='event_list'>
       
     { 
-          this.state. events.map(elm=> <EventItem  key={elm.id} event={elm} />)  
+          this.props.PromotionEventList.map((elm,i)=> <EventItem  key={i} event={elm} />)  
     }
      
     </div>
@@ -22,4 +23,24 @@ class Eventliste extends Component {
     }
 }
 
-export default Eventliste ;
+const mapStateToProps = state => {
+    return {
+        PromotionEventList: state.PromotionEventReducer
+    };
+  };
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+      initPromotionEventList: PromotionEvent => {
+        dispatch({
+          type: "UPDATE_PROMOTION_EVENT_LIST",
+          PromotionEvent
+        });
+      }
+    };
+  };
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Eventliste);

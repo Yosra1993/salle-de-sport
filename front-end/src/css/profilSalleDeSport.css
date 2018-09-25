@@ -1,3 +1,8 @@
 .pusher{
  min-height : 60vh !important
 }
+
+.modalpromotionuser >.modal-content
+{
+    width: 140%;
+}

@@ -4,7 +4,7 @@ import Navbar from './navbar';
 import Header from './Header';
 import AboutUs from './About-us';
 import CalculBodyMasse from'./CalculBodyMasse.js'
-import ThumbnailsCarouselPage from './avisUser'
+import AvisUser from './AvisUser.js'
 import Login from './login.js'
 import FooterPage from'./footer'
 import {connect} from 'react-redux'
@@ -19,7 +19,7 @@ class Home extends Component {
          <Login/>
         <AboutUs/>
         <CalculBodyMasse/>
-        <ThumbnailsCarouselPage/>
+        <AvisUser/>
          <FooterPage/>
          
       </div>

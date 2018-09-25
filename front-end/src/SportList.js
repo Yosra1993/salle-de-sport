@@ -23,7 +23,7 @@ class SportList extends Component {
     render() {
         return (
             
-            <div className='sport_list'>
+            <div className='sport_list'style={{paddingTop: "70px"}}>
     { 
           this.state.sports.map(elm=> <SportItem key={elm.id} sport={elm} />)  
     }

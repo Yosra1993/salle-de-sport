@@ -96,9 +96,9 @@ constructor(props){
               </ModalFooter>
             </Modal>
 
+              <Modal isOpen={this.state.modal1} toggleEdit1={this.toggleEdit1} className="cascading-modal modalpromotionuser">
 
-              <Modal isOpen={this.state.modal1} toggleEdit1={this.toggleEdit1} className="cascading-modal">
-              <div className="modal-header primary-color white-text">
+              <div className="modal-header primary-color white-text" >
                 <h4 className="title">
                   <Fa className="fa fa-pencil" /> Edit GYM</h4>
                 <button type="button" className="close" onClick={this.toggleEdit1}>
@@ -107,6 +107,8 @@ constructor(props){
               </div>
               <ModalBody className="grey-text">
               < Container>
+              <Row>
+          <Col lg="6" md="6">
           <FormGroup>
           <Label for="exampleName">Name GYM</Label>
           <Input type="text" name="Name" id="exampleName" placeholder="Please write the name......." />
@@ -123,6 +125,8 @@ constructor(props){
           <Label for="exampleDescription">Description</Label>
           <Input type="description" name="description" id="exampleDescription" placeholder="Please write Description......." />
         </FormGroup>
+        </Col>
+        <Col lg="6" md="6">
         <FormGroup>
           <Label for="examplePhoto">Picture1</Label>
           <Input type="url" name="photo" id="examplePicture" placeholder="Please enter Picture 1......." />
@@ -139,6 +143,8 @@ constructor(props){
           <Label for="exampleCategories">Categories</Label>
           <Input type="testarea" name="categories" id="exampleCategories" placeholder="Please write Categories......." />
         </FormGroup>
+        </Col>
+        </Row>
       </Container>
                 
                 
