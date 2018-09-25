@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import {Container, Button,  FormGroup, Label, Input, } from 'reactstrap';
 import ProfilSalleDeSport from './profilSalleDEsport.js'
-import PromotionEvent from './Profil-Promotion-Event.js'
+import PromotionEvent from './Profil-Promotion-EventList.js'
 import Profilcoach from './profil-coachs.js'
 import Navbar from './navbar.js'
 

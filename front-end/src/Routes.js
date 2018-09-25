@@ -10,6 +10,7 @@ import Home from './Home'
 import AboutUs from './About-us'
 import AddPromotionEvent from './AddPromotion-Event'
 import EditPromotionEvent from './EditPromotionEvent'
+import EditProduct from './EditPromotionEvent.js'
 import FormGym from './formGym.js'
 const Routes = () => {
     return (
@@ -25,6 +26,11 @@ const Routes = () => {
             <Route exact path="/Add-Promotion-Event" component={AddPromotionEvent}/>
             <Route exact path="/Edit-Promotion-Event" component={EditPromotionEvent}/>
             <route exact path="./form-Gym-remplir" component={FormGym}/>
+            <Route exact path="/edit-page/:_id"render={props => <EditProduct name={props.match.params.name} />}
+             />
+          
+          
+        
 
 
 

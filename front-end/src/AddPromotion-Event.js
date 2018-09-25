@@ -44,7 +44,7 @@ class AddPromotionEvent extends React.Component {
           <Label for="exampledescription">description</Label>
           <Input type="textarea" name="description" id="exampledescription" onChange={this.onChange} placeholder="Please write your description......." />
         </FormGroup>
-         <Link to='/evenement'>
+         <Link to='Profil-salle-de-Sport'>
         <Button color="danger" onClick={this.onAddPromotionEvent}>Add +</Button>{' '}
         </Link>
       </Container>
