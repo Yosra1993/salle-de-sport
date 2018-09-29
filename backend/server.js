@@ -33,12 +33,44 @@ MongoClient.connect(
       });
     });
 
+    
+
     app.put("/EventPromotion/:id", (req, res) => {
-      let editePromotionEventt = req.body;
+      let editPromotionEvent = req.body;
       let id = ObjectID(req.params.id);
       db.collection("EventPromotion").findOneAndUpdate(
         { _id: id },
-        { $set: { ...editePromotionEventt } },
+        { $set: { ...editPromotionEvent } },
+        (err, data) => {
+          if (err) res.send("cant edit products");
+          else res.send(data);
+        }
+      );
+    });
+
+    app.get("/profil-SalleDeSport", (req, res) => {
+      db.collection("ProfilGym")
+        .find()
+        .toArray((err, data) => {
+          if (err) res.send("cant fecth products");
+          else res.send(data);
+        });
+    }); 
+
+    app.post("/profil-SalleDeSport", (req, res) => {
+      let new_Profil_Gym = req.body;
+      db.collection("ProfilGym").insertOne(new_Profil_Gym, (err, data) => {
+        if (err) res.send("cant add products");
+        else res.send(data);
+      });
+    });
+
+    app.put("/profil-SalleDeSport/:id", (req, res) => {
+      let editProfilGYM = req.body;
+      let id = ObjectID(req.params.id);
+      db.collection("ProfilGym").findOneAndUpdate(
+        { _id: id },
+        { $set: { ...editProfilGYM } },
         (err, data) => {
           if (err) res.send("cant edit products");
           else res.send(data);

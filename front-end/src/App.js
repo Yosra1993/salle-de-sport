@@ -3,6 +3,7 @@ import { Grid} from 'react-bootstrap';
 import './css/App.css';
 import Routes from './Routes'
 import NavBar from './navbar'
+import Footer from './footer.js'
 import {BrowserRouter} from 'react-router-dom'
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <div>
         <NavBar/>
         <Routes/>
+        <Footer/>
         </div>
         </BrowserRouter>
 

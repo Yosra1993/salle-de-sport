@@ -10,8 +10,8 @@ class EditPromotionEvent extends React.Component {
       nameSalledeSport: "",
       typepromo: "",
       lieu:"",
-      Date:"",
-      Picture:"",
+      date:"",
+      picture:"",
       description: "",
     };
   }
@@ -22,8 +22,8 @@ class EditPromotionEvent extends React.Component {
         nameSalledeSport: this.state.nameSalledeSport,
         typepromo: this.state.typepromo,
         lieu: this.state.lieu,
-        Date: this.state.Date,
-        Picture: this.state.Picture,
+        date: this.state.date,
+        picture: this.state.picture,
         description: this.state.description
 
       })
@@ -39,7 +39,7 @@ class EditPromotionEvent extends React.Component {
 
   componentDidMount() {
     this.setState({
-      ...this.props.ProductsList.filter(e => e.name === this.props.name)[0]
+      ...this.props.PromotionEventarray.filter(e => e.typepromo === this.props.typepromo)[0]
     });
   }
 
@@ -77,7 +77,7 @@ class EditPromotionEvent extends React.Component {
           <Input type="textarea" name="description" id="exampledescription" 
           value={this.state.description} onChange={this.onChange} placeholder="Please write your description......." />
         </FormGroup>
-         <Link to='/evenement'>
+         <Link to='/Profil-salle-de-Sport'>
         <Button color="danger" onClick={this.onEditPromotionEvent}>Valid</Button>{' '}
         </Link>
       </Container>
@@ -88,7 +88,7 @@ class EditPromotionEvent extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    ProductsList: state.PromotionEventReducer
+    PromotionEventarray: state.PromotionEventReducer
   };
 };
 

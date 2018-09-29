@@ -1,22 +1,31 @@
-h6{
-    color:red
+.promotype{
+    text-align: center;
+    font-size: 120%;
+    color: teal;
+transition: transform .2s; /* Animation */
 }
+.promotype:hover {
+    transform: scale(1.5)}
 Button:hover {
     background-color: black;
     color: white; 
     
 }
-h6:hover {
-    transform: scale(1.5)}
-h6{
-text-align: center;
 
-transition: transform .2s; /* Animation */
-}
-
- h3{
+.nameofgym{
     
         text-align: center;
-        text-transform: uppercase;
-        color: blue
+        font-family: sans-serif;
+        color: dimgray;
  } 
+ .btn-default {
+    background-color: teal !important;}
+
+.section-promotion-event{
+    padding: 4%;
+}
+.btn-participation
+{
+    font-size: 98% !important;
+
+}

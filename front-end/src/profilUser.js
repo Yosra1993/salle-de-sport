@@ -26,7 +26,7 @@ constructor(props){
   render(){
   return(
 <div className = 'salle-de-sport-profile-container'>
-              <Header as='h3'>Your Profil 
+              <Header as='h3' style={{textAlign:"center"}}>Your Profil 
                <a href='#' onClick={this.toggleEdit} style={{fontSize:"17px"}}>  <i class="fa fa-pencil" aria-hidden="true"></i>   Edit </a> </Header>
 
               <Row className="text-md-left">
@@ -35,9 +35,9 @@ constructor(props){
               <Image src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" />
             </Col>
             <Col md="8" lg="6" className="float-right">
-              <h4 className="font-weight-bold mb-3"><i class="fa fa-user-circle-o" aria-hidden="true"></i> John hhhhh</h4>
-              <p className="grey-text"><i class="fa fa-envelope-o" aria-hidden="true"></i> john@gmail.com </p>
-              <p className="grey-text"><i class="fa fa-phone" aria-hidden="true"></i>  23190023</p>
+              <h4 className="font-weight-bold mb-3"><i class="fa fa-user-circle-o" aria-hidden="true"></i> John Milan</h4>
+              <p className="font-weight-bold mb-3"><i class="fa fa-envelope-o" aria-hidden="true"></i> john@gmail.com </p>
+              <p className="font-weight-bold mb-3"><i class="fa fa-phone" aria-hidden="true"></i>  23190023</p>
             </Col>
           </Col>
           </Row> 

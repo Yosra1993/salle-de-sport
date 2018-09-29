@@ -1,4 +1,4 @@
-.card-title{
+.card-img-overlay .card-title{
     font-size: 200% ;
       width: 38% ;
     
@@ -17,4 +17,15 @@
     margin-top: 25%!important;
 
 }
+@media only screen and (max-width:900px) {
+  .tilte-header-container{
+ 
+    font-size: 66%;}
+    .card-title {
+    font-size: 39px;}
+  }
+  @media only screen and (max-width:900px) {
+    .tilte-header-container{
+ 
+      font-size: 50%;}}
   

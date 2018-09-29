@@ -1,0 +1,10 @@
+.fixed-top {
+    top: -9px;}
+    .serach_promotion_event
+    {
+        padding: 2%;
+    border-radius: 10px;
+    /* align-items: center; */
+    justify-content: center;
+    background-color: lightslategray;
+    }

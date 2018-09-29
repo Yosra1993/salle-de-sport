@@ -1,31 +1,20 @@
 import React, { Component } from 'react';
 import SportItem from './Sport-Item.js'
-import Navbar from './navbar.js'
+import { connect } from "react-redux";
 import './css/sport_list.css';
 class SportList extends Component {
     constructor(props) {
         super(props);
-        this.state = { sports:[{
-            img:require("./images/ExtraFitness.PNG"),
-             nameSalledeSport:'gym1',
-             lieu:'sahloul RueAAAAAAAAAAAA',
-
-        },
-        {
-            img:require("./images/ExtraFitness.PNG"),
-           
-          nameSalledeSport:'Fitness',
-          lieu:'khzema RueAAAAAAAAAAAA',
-
-        }
-    ]};
     }
     render() {
         return (
             
-            <div className='sport_list'style={{paddingTop: "70px"}}>
+            <div className='sport_list'style={{paddingTop: "70px", 
+                backgroundImage:"url('http://www.allwhitebackground.com/images/2/2273.jpg"
+    
+                ,backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>
     { 
-          this.state.sports.map(elm=> <SportItem key={elm.id} sport={elm} />)  
+          this.props.sports.map(elm=> <SportItem key={elm.id} sport={elm} />)  
     }
      
     </div>
@@ -33,4 +22,24 @@ class SportList extends Component {
     }
 }
 
-export default SportList;
+const mapStateToProps = state => {
+    return {
+        sports: state.add_salle_sportReducer.filter(
+            el =>el.lieu.toLowerCase().includes(
+                state.LieuSearchReducer.toLowerCase()
+            )
+            &&
+            el.courses.toLowerCase().includes(
+                state.CoursesSearchReducer.toLowerCase()
+            )
+                &&
+                el.NomSalledeSport.toLowerCase().includes(
+                state.SearchReducer.toLowerCase().trim()
+                )
+          )
+    };
+  };
+
+export default connect(
+    mapStateToProps)(SportList);
+  

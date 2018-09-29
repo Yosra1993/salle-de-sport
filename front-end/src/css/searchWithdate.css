@@ -1,0 +1,21 @@
+
+
+
+.searchwithdata-container input {
+    width: 90% ;
+     height: 34px ;
+     border-radius: 5px;
+     border: 1px solid gray
+}
+.searchwithdata-container{
+    margin-left: 3%;
+
+}
+.serach_promotion_event{
+    display: inline-flex;
+
+}
+.serach_promotion_event form{
+    display: inline-flex;
+    margin-top: -20px;
+}

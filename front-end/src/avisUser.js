@@ -8,6 +8,8 @@ class ThumbnailsCarouselPage extends Component {
   render(){
     return(
        <center>
+               <hr className="my-5"/>
+
       <Container>
         
         <Carousel
@@ -55,6 +57,8 @@ class ThumbnailsCarouselPage extends Component {
         </Carousel>
         
       </Container>
+      <hr className="my-5"/>
+
       </center>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -21,14 +22,14 @@ const styles = theme => ({
 });
 
 class ControlledOpenSelect extends React.Component {
-  state = {
-    lieu: '',
+  constructor(props)
+  {
+    super(props)
+  
+  this.state = {
     open: false,
   };
-
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  }
 
   handleClose = () => {
     this.setState({ open: false });
@@ -40,25 +41,30 @@ class ControlledOpenSelect extends React.Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props.courses)
 
     return (
       <form autoComplete="off" style={{marginLeft:"-53%"}}>
         <FormControl style={{width: "36%",backgroundColor: "white"}}>
-          <InputLabel>Lieu</InputLabel>
+          <InputLabel>Course</InputLabel>
           <Select
             open={this.state.open}
             onClose={this.handleClose}
             onOpen={this.handleOpen}
-            value={this.state.lieu}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={(event) => {this.props.onChange(event.target.value)}}
             inputProps={{
-              name: 'lieu',
+              name: 'Course',
               id: 'demo-controlled-open-select',
             }}
           >
-            <MenuItem value={10}>Hammem Sousse</MenuItem>
-            <MenuItem value={20}>Sahloul</MenuItem>
-            <MenuItem value={30}>Khzema</MenuItem>
+            <MenuItem value={"Fitness"}>Fitness</MenuItem>
+            <MenuItem value={"Yoga"}>Yoga</MenuItem>
+            <MenuItem value={"Musculation"}>Musculation</MenuItem>
+            <MenuItem value={"Bodycombat"}>Bodycombat</MenuItem>
+            <MenuItem value={"dance oriental"}>dance oriental</MenuItem>
+            <MenuItem value={"Boxing"}>Boxing</MenuItem>
+
           </Select>
         </FormControl>
       </form>
@@ -67,8 +73,26 @@ class ControlledOpenSelect extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+      value: state.CoursesSearchReducer
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onChange: (newTitleFilter) => {
+          dispatch({
+              type: 'SET_COURSE_FILTER',
+              courses: newTitleFilter
+          })
+      }
+  }
+}
+
 ControlledOpenSelect.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ControlledOpenSelect);
+export default connect(
+  mapStateToProps,mapDispatchToProps) (withStyles(styles)(ControlledOpenSelect));

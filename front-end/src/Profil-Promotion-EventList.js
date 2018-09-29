@@ -18,7 +18,7 @@ class PromotionEventList extends Component {
             <div className='promotion-event-list-container'>
             
             <Link to="/Add-Promotion-Event">
-    <Button className="pull-right" color="Warning">Add +</Button>
+    <Button className="pull-right">Add +</Button>
     </Link>
     { 
           this.props.PromotionEventArray.map((elm,indice)=> <PromotionEventItem key={indice} value={elm} />)  

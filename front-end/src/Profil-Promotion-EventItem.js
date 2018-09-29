@@ -24,7 +24,9 @@ const PromotionEventItem = ({value}) => {
           <td>{value.date}</td>
 
           
-          <td><Link to="/Edit-Promotion-Event"><Button color="info">Edit</Button></Link>
+          <td><Link to={`/Edit-Promotion-Event/${value.typepromo}`}>
+                     <Button color="info">Edit</Button>
+              </Link>
           <Button color="danger" style={{marginLeft:"2%"}}>Delete</Button></td>
     
         </tr>

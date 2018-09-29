@@ -86,12 +86,12 @@ class Header extends Component {
                     <NavLink href="#" onClick={this.togglelogin}>LOG IN</NavLink>
                   </NavItem>}
                   {this.props.connectedUser === "admin" && 
-                  <NavItem>
+                  <NavItem className="nav nav-pills pull-right">
                    <Link to='/Profil-salle-de-Sport'> <NavLink >Admin Profile</NavLink></Link>
                   </NavItem>}
                   {this.props.connectedUser === "user" && 
-                  <NavItem>
-                   <Link to="/Profil-user"> <NavLink >User Profile</NavLink></Link>
+                  <NavItem className="nav nav-pills pull-right">
+                   <Link to="/Profil-user"> <NavLink>User Profile</NavLink></Link>
                   </NavItem>}
                 </Nav>
               </Collapse>

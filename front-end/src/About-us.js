@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Grid, Jumbotron} from 'react-bootstrap';
 import InfiniteCarousel from 'react-leaf-carousel';
 import './css/AboutUs.css';
-import img2 from './images/img2.jpg'
 import Header from './navbar'
 
 class  AboutUs extends Component {
@@ -15,12 +14,13 @@ class  AboutUs extends Component {
             <Grid fluid >
             <Header/> 
         <Jumbotron>
-  <h1 style={{fontSize:"250%"}}>About us</h1>
+          <center>
+  <h1 className="about-us-title" style={{fontSize:"250%"}}>About us</h1>
+  </center>
 
-  <p>
-    This is a simple hero unit, a simple jumbotron-style component for calling
-    extra attention to featured content or information.
-  </p>
+  <h3 className="about-us-parg">
+  Save your money and time, find a suitable gym for your needs is terms of distance, prices, and training, sport take helps find the perfect gym
+  </h3>
   
 
 <InfiniteCarousel
@@ -49,37 +49,38 @@ class  AboutUs extends Component {
     slidesToShow={3}
     scrollOnDevice={true}
     autoCycle={true}
-    animationDuration= {200}
+    animationDuration= {150}
     
   >
     <div>
       <img
         alt=''
-        src={img2}
+        src="https://image.freepik.com/free-photo/girl-background-active-lifestyle-people_1139-705.jpg"
+
       />
     </div>
     <div>
       <img
         alt=''
-        src={img2}
+        src="https://www.wellness-sportclub.fr/wp-content/uploads/2016/08/depositphotos_36176015_original.jpg"
       />
     </div>
     <div>
       <img
         alt=''
-        src={img2}
+        src="http://www.kostivere.ee/wp-content/uploads/2015/10/gym_instructor_courses_qualifications_container.jpg"
       />
     </div>
     <div>
       <img
         alt=''
-        src={img2}
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR22Glq3YQyN7fwvCAEi6eUHoVTMJS-lQoIpOc4xKvJ-Nlav_tjKQ"
       />
     </div>
     <div>
       <img
         alt=''
-        src={img2}
+        src="https://kelseykinney.com/wp-content/uploads/2017/05/iStock-495353207-1030x687.jpg"
       />
     </div>
     

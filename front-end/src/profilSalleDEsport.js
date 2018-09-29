@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import { connect } from "react-redux";
+import axios from "axios";
 import { Row, Col, Card, CardBody, Avatar, Mask, Fa, View,} from 'mdbreact';
 import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { Modal, ModalBody, ModalFooter } from 'mdbreact';
@@ -13,11 +15,51 @@ constructor(props){
     super(props)
     this.state={
              modal: false,
-             modal1: false, }
+             modal1: false,
+             FirstName: "",
+             LastName: "",
+             number:"",
+             email:"",
+             photo:"",
+             password: "", }
 
   this.toggleEdit = this.toggleEdit.bind(this);
   this.toggleEdit1 = this.toggleEdit1.bind(this);
 }
+
+onEditProfilSalleDeSport = () => {
+  axios
+    .put(`/profil-SalleDeSport/${this.state._id}`, {
+      FirstName: this.state.FirstName,
+      LastName: this.state.LastName,
+      number: this.state.number,
+      email: this.state.email,
+      photo: this.state.photo,
+      password: this.state.password
+
+    })
+    .then(() => this.props.onEditProfilSalleDeSportReducerAction({
+     
+                                                                  FirstName: "",
+                                                                  LastName: "",
+                                                                  number:"",
+                                                                  email:"",
+                                                                  photo:"",
+                                                                  password: "", }))
+    .catch(err => alert(err));
+};
+
+onChange = e => {
+  this.setState({
+    [e.target.name]: e.target.value
+  });
+};
+
+componentDidMount() {
+  this.setState({
+    ...this.props.ProfilGYM_Array.filter(e => e.FirstName === this.props.FirstName)[0]
+  });
+  }
   toggleEdit() {
     this.setState({
       modal: !this.state.modal
@@ -30,20 +72,22 @@ constructor(props){
   }
   
   render(){
+    console.log(this.props)
   return(
 <div className = 'salle-de-sport-profile-container'>
-              <Header as='h3'>Your Profil 
+              <Header as='h3'style={{textAlign:"center"}}>Your Profil 
+
                <a href='#' onClick={this.toggleEdit} style={{fontSize:"17px"}}>  <i class="fa fa-pencil" aria-hidden="true"></i>   Edit </a> </Header>
 
               <Row className="text-md-left">
           <Col lg="6" md="12" className="mb-5">
             <Col md="4" lg="6" className="float-left">
-              <Image src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" />
+              <Image src={this.props.ProfilGYM_Array[0].photo} className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" />
             </Col>
             <Col md="8" lg="6" className="float-right">
-              <h4 className="font-weight-bold mb-3"><i class="fa fa-user-circle-o" aria-hidden="true"></i> John hhhhh</h4>
-              <p className="grey-text"><i class="fa fa-envelope-o" aria-hidden="true"></i> john@gmail.com </p>
-              <p className="grey-text"><i class="fa fa-phone" aria-hidden="true"></i>  23190023</p>
+              <h4 className="font-weight-bold mb-3"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {this.props.ProfilGYM_Array[0].FirstName} {this.props.ProfilGYM_Array[0].LastName}</h4>
+              <p className="font-weight-bold mb-3"><i class="fa fa-envelope-o" aria-hidden="true"></i> {this.props.ProfilGYM_Array[0].email} </p>
+              <p className="font-weight-bold mb-3"><i class="fa fa-phone" aria-hidden="true"></i>  {this.props.ProfilGYM_Array[0].number}</p>
               <h4 className="font-weight-bold mb-3" style={{fontSize:"140%"}}>
 <i class="fa fa-suitcase"  aria-hidden="true"></i> name de salle de sport<a href='#' onClick={this.toggleEdit1} style={{fontSize:"17px"}}>  <i class="fa fa-pencil" aria-hidden="true"></i>   Edit </a></h4>
 
@@ -63,27 +107,34 @@ constructor(props){
               < Container>
           <FormGroup>
           <Label for="exampleFirstName">First Name</Label>
-          <Input type="text" name="FirstName" id="exampleFirstName" placeholder="Please write your first name......." />
+          <Input type="text" name="FirstName" id="exampleFirstName" value={this.state.FirstName} 
+          onChange={this.onChange} placeholder="Please write your first name......." />
+          
         </FormGroup>
         <FormGroup>
           <Label for="exampleLastName">Last Name</Label>
-          <Input type="text" name="LastName" id="exampleLastName" placeholder="Please write your last name......." />
+          <Input type="text" name="LastName" id="exampleLastName"value={this.state.LastName} 
+          onChange={this.onChange}  placeholder="Please write your last name......." />
         </FormGroup>
         <FormGroup>
           <Label for="exampleNumber">Number</Label>
-          <Input type="number" name="number" id="exampleNumber" placeholder="Please write number......." />
+          <Input type="number" name="number" id="exampleNumber" value={this.state.number} 
+          onChange={this.onChange} placeholder="Please write number......." />
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="exemple:user@gmail.com" />
+          <Input type="email" name="email" id="exampleEmail" value={this.state.email} 
+          onChange={this.onChange} placeholder="exemple:user@gmail.com" />
         </FormGroup>
         <FormGroup>
           <Label for="examplePhoto">Photo</Label>
-          <Input type="url" name="photo" id="examplePhoto" placeholder="Please enter your Photo......." />
+          <Input type="url" name="photo" id="examplePhoto" value={this.state.photo} 
+          onChange={this.onChange} placeholder="Please enter your Photo......." />
         </FormGroup>
         <FormGroup>
           <Label for="examplePassword">Password</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="Please write your password name......." />
+          <Input type="password" name="password" id="examplePassword" value={this.state.password} 
+          onChange={this.onChange} placeholder="Please write your password name......." />
         </FormGroup>
       </Container>
                 
@@ -91,7 +142,7 @@ constructor(props){
               </ModalBody>
               <ModalFooter>
                
-                <Button onClick={this.toggleEdit} color="primary">Save</Button>
+                <Button onClick={this.toggleEdit && this.onEditProfilSalleDeSport} color="primary">Save</Button>
                
               </ModalFooter>
             </Modal>
@@ -150,8 +201,7 @@ constructor(props){
                 
               </ModalBody>
               <ModalFooter>
-               
-                <Button onClick={this.toggleEdit1} color="primary">Save</Button>
+                <Button onClick={this.toggleEdit1} color="primary">Valid</Button>
                
               </ModalFooter>
             </Modal>
@@ -159,4 +209,25 @@ constructor(props){
               </div>
   )}
 }
-export default ProfilSalleDeSport;
+const mapStateToProps = state => {
+  return {
+    ProfilGYM_Array: state.ProfilGYM_Reducer
+  };
+};
+
+const mapDispacthToProps = dispatch => {
+  return {
+    onEditProfilSalleDeSportReducerAction: GYM => {
+      dispatch({
+        type: "EDIT_PROFIL_GYM",
+        editedPrfilGym: GYM
+      });
+    }
+  };
+};
+
+
+export default connect(
+  mapStateToProps,
+  mapDispacthToProps)(ProfilSalleDeSport);
+
